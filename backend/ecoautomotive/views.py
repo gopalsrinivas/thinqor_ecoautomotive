@@ -25,7 +25,6 @@ from django.db.models import Q
 from django.db import transaction
 import logging
 
-#razorpay_client = razorpay.Client(auth=("rzp_test_DBKBpAVF731hwI", "fVQSKwc9I3tJgm3GZVy29jnW"))
 razorpay_client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID,settings.RAZORPAY_KEY_SECRET))
 
 # Create your views here.
@@ -392,8 +391,7 @@ def new_order(request):
             )
             serializer = OrderSerializer(order)
             response_data = {
-                "callback_url": "http://127.0.0.1:8000/payment/callback",
-                "razorpay_key": "rzp_test_DBKBpAVF731hwI",
+                "razorpay_key": settings.RAZORPAY_KEY_ID,
                 "order": new_order_response,
                 "order_data": serializer.data
             }
