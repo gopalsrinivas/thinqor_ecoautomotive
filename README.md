@@ -1,2 +1,2 @@
 # thinqor_ecoautomotive
-thinqor_ecoautomotive
+Thinqor eco automotive ecommerce website

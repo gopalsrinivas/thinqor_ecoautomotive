@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  django:
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    volumes:
+      - ./django:/app
+    ports:
+      - 8000:8000
+    image: app:django
+    container_name: ecoautomotive_backend_django
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+  nextjs:
+    build:
+      context: ./nextjs
+      dockerfile: Dockerfile
+    volumes:
+      - ./nextjs:/app
+    ports:
+      - 3000:3000
+    container_name: ecoautomotive_frontend_NextJS
